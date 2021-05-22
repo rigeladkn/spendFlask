@@ -15,7 +15,7 @@ Spend Management web app with flask
  source env/bin/activate
 
 # Configurer le projet 
- export FLASK_APP="app/routes.py"
+ export FLASK_APP="app/routes.py" 
  export FLASK_DEBUG=1
 
 # Lancer le projet 
