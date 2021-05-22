@@ -6,7 +6,7 @@ Spend Management web app with flask
  git clone https://github.com/rigeladkn/spendFlask.git
 
 # Ouvrir le projet 
- cd argon-dashboard-flask
+ cd spendFlask
 
 # Installer les modules de l'environnnement virtuel 
  virtualenv env
