@@ -1,0 +1,64 @@
+{% extends 'layouts/base.htm'%}
+
+{%block css %}  <link href="{{url_for('static', filename='assets/css/flipcardcss.css')}}" rel="stylesheet"> {%endblock%}
+
+{%block title%} Spend | Budgets {%endblock%}
+
+
+
+{%block content%}
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Liste des budgets</h1>
+
+        <a type="button" class="modal-title d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm " data-toggle="modal" id="exampleModalLabelBud" data-target="#exampleBud">
+            <i class="fas fa-plus text-white-50" ></i> Ajouter un budget
+        </a>
+  </div>
+       
+  <div class="row">
+    <div class="col-4 mb-4" >
+      <div class="flip-card">
+
+        <div class="flip-card-inner">
+
+          <div class="flip-card-front" style="background-color: rgb(32, 165, 165);">
+         
+            <img src="{{url_for('static',filename='assets/img/girl.jpg')}}" alt="Avatar" style="width:298px;height:175px;">
+        <b style="color: black;">Budget du mois de Décembre 2021 uu</b>
+            
+          </div>
+          <div class="flip-card-back" style="background-color: rgb(241, 238, 238); color:black">
+            <div class="row">
+              <div class="col-5"></div>
+              <div class="mb-4">
+                <small>21/03/2020 12:06:45 min</small><br></div>
+              </div>
+            
+              <div class="mb-3">
+                <b>Type : </b> Mensuel <br>
+              </div>
+              <div class="mb-3">
+                <b>Montant : </b> 500000 FCA <br>
+              </div>
+              <div class="mb-2">
+                <b>Période : </b> 21/03/2020 au 21/03/2021
+              </div>
+              <a type="button" class="btn btn-info">
+                <i class="fas fa-trash"><small> Supprimer</small> </i>
+              </a>
+            
+            
+          </div>
+        </div>
+      </div> 
+    </div>    
+    <!-- autres budget
+    ici
+    fin -->
+   
+  </div>
+
+
+{%endblock%}

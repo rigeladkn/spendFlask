@@ -7,7 +7,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Spend <sup>1</sup></div>
             </a>
 
             <!-- Divider -->
@@ -30,17 +30,17 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDepense"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Dépenses</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseDepense" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Mes dépenses</h6>
-                        <a type="button" class="collapse-item" data-toggle="modal" data-target="#exampleModal2">Ajouter une dépense</a>
+                        <a type="button" class="collapse-item" data-toggle="modal" data-target="#exampleModalDep">Ajouter une dépense</a>
 
-                        <a class="collapse-item" href="cards.html">Liste des dépenses</a>
+                        <a class="collapse-item" href="{{url_for('depenses')}}">Liste des dépenses</a>
                     </div>
                 </div>
             </li>
@@ -57,10 +57,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Mes revenus</h6>
                         <a type="button" class="collapse-item" data-toggle="modal" data-target="#exampleModal">Ajouter une revenu</a>
-
-
-                            
-
                         <a class="collapse-item" href="utilities-border.html">Liste des revenus</a>
                     </div>
                 </div>
@@ -68,20 +64,10 @@
 
              <!-- Nav Item - Utilities Collapse Menu -->
              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBudget"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link" href="{{url_for('budgets')}}">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Budget</span>
                 </a>
-                <div id="collapseBudget" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Mon budget</h6>
-                        <a class="collapse-item" href="utilities-color.html">Ajouter un budget</a>
-                        <a class="collapse-item" href="utilities-color.html">Modifier un budget</a>
-                        <a class="collapse-item" href="utilities-color.html">Supprimer un budget</a>
-                    </div>
-                </div>
             </li>
 
             <!-- Divider -->
@@ -136,7 +122,7 @@
             </div>
 
 <!-- form  ajout revenu -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -145,7 +131,7 @@
                   <div class="modal-body">
                     <form>
                       <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Nom du revenu</label>
+                        <label for="recipient-name" class="col-form-label">Intitulé du revenu</label>
                         <input type="text" class="form-control" id="recipient-name">
                       </div>
                       <div class="form-group">
@@ -166,13 +152,107 @@
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" >Annuler</button>
                     <button type="submit" class="btn btn-success">Enregistrer</button>
                   </div>
                 </div>
               </div>
             </div>
 <!-- fin form ajout revenu-->
+
+<!-- form  ajout dépense -->
+<div class="modal fade" id="exampleModalDep" tabindex="-1" aria-labelledby="exampleModalLabelDep" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabelDep">Ajouter une dépense</h5>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Intitulé de la dépense</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Montant</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div> 
+            <div class="row">
+              <div class="form-group col-6">
+                  <label for="message-text" class="col-form-label ">Date </label>
+                  <input type="date" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group col-6">
+                  <label for="message-text" class="col-form-label">Heure(facultatif)</label>
+                  <input type="time" class="form-control" id="recipient-name">
+              </div>
+            </div>
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Annuler</button>
+          <button type="submit" class="btn btn-success">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- fin form ajout dépense-->
+
+<!-- form  ajout budget -->
+<div class="modal fade" id="exampleBud" tabindex="-1" aria-labelledby="exampleModalLabelBud" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabelDep">Ajouter un budget</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Intitulé du budget</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Montant</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div> 
+          <div class="row">
+            <div class="form-group col-12">
+              <label for="message-text" class="col-form-label ">Description</label>
+                <textarea name="" id="" cols="48" rows="1" class="for-control" style="max-height: 40px; min-height:40px"></textarea>
+            </div>
+         </div>
+         <div class="row">
+          <div class="form-group col-12">
+            <label for="message-text" class="col-form-label">Type</label>
+            <select name="type" id="type" class="form-control">
+              <option value="">Mensuel</option>
+              <option value="">Annuel</option>
+              <option value="">Hebdomadaire</option>
+              <option value="">Période personnalisée</option>
+            </select>
+           </div>
+         </div>
+         <div class="row">
+          <div class="form-group col-6">
+              <label for="message-text" class="col-form-label ">Début de période</label>
+              <input type="date" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group col-6">
+              <label for="message-text" class="col-form-label">Fin de période</label>
+              <input type="date" class="form-control" id="recipient-name">
+          </div>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Annuler</button>
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fin form ajout budget-->
 
         </ul>
         <!-- End of Sidebar -->
