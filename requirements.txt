@@ -1,0 +1,11 @@
+flask
+flask_login
+flask_migrate
+flask_wtf
+flask_wtf==0.14.3
+flask_sqlalchemy
+sqlalchemy
+email_validator
+python-decouple
+gunicorn
+jinja2
